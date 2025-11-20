@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="./src/images/favicon-32x32.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+    <title>Article Preview Component</title>
+  </head>
+  <body class="font-Manrope text-article text-articleDesaturatedBlue bg-articleLightGrayishBlue grid min-h-screen place-content-center font-medium">
+    <!-- Card Component -->
+    <article class="grid w-[86vw] max-w-md grid-rows-[12rem_auto] rounded-xl bg-white shadow-xl md:w-auto md:max-w-2xl md:grid-cols-[35%_65%] md:grid-rows-1 lg:max-w-3xl lg:grid-cols-[40%_60%]">
+      <!-- Card Image -->
+      <img
+        src="./src/images/drawers.jpg"
+        alt="Green drawer"
+        class="h-full w-full rounded-t-xl object-cover md:rounded-t-none md:rounded-l-xl"
+      />
+
+      <section class="md:rounded-r-xl">
+        <!-- Card Description -->
+        <section class="place-self-center px-8.5 pt-10 pb-5 md:rounded-tr-xl lg:px-11 lg:pt-8">
+          <h1 class="text-articleDarkGrayishBlue mb-4 text-base font-bold md:text-xl">
+            Shift the overall look and feel by adding these wonderful touches to furniture in your home
+          </h1>
+          <p>
+            Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I've got some simple tips to help you make any room feel complete.
+          </p>
+        </section>
+
+        <!-- Card Avatar & Socials -->
+        <section class="avatar-socials-section relative md:rounded-br-xl">
+          <!-- Michelle Appleton -->
+          <section class="flex items-center justify-between rounded-b-xl px-8.5 pt-3 pb-5 md:rounded-bl-none lg:visible lg:px-11 lg:pt-0 lg:pb-8">
+            <div class="flex items-center justify-start gap-x-4">
+              <img
+                src="./src/images/avatar-michelle.jpg"
+                alt="Michelle Image"
+                class="w-10 rounded-full"
+              />
+              <div>
+                <p class="text-articleDarkGrayishBlue font-bold">
+                  Michelle Appleton
+                </p>
+                <p>28 Jun 2020</p>
+              </div>
+            </div>
+
+            <button class="bg-articleLightGrayishBlue hover:bg-articleDesaturatedBlue flex h-9 w-9 items-center justify-center rounded-full hover:cursor-pointer hover:[&_img]:brightness-0 hover:[&_img]:invert" id="author-share">
+              <img src="./src/images/icon-share.svg" alt="Share Icon" />
+            </button>
+          </section>
+
+          <!-- Social Links -->
+          <section class="bg-articleDarkGrayishBlue lg:after:border-t-articleDarkGrayishBlue invisible absolute top-0 flex h-full w-full items-center justify-between rounded-b-xl px-8.5 pt-3 pb-5 md:rounded-bl-none lg:top-auto lg:right-15.5 lg:bottom-23 lg:h-auto lg:w-auto lg:translate-x-1/2 lg:justify-center lg:rounded-xl lg:px-10 lg:py-4 lg:shadow-xl lg:after:absolute lg:after:top-full lg:after:left-1/2 lg:after:-translate-x-1/2 lg:after:border-8 lg:after:border-x-transparent lg:after:border-b-transparent">
+            <div class="flex items-center justify-between gap-x-5">
+              <p class="text-articleGrayishBlue text-sm tracking-[.3rem] uppercase">
+                share
+              </p>
+              <div class="flex items-center justify-between gap-x-4">
+                <a href="https://facebook.com" target="_blank">
+                  <img
+                    src="./src/images/icon-facebook.svg"
+                    alt="Facebook Icon"
+                  />
+                </a>
+                <a href="https://x.com" target="_blank">
+                  <img src="./src/images/icon-twitter.svg" alt="Twitter Icon" />
+                </a>
+                <a href="https://www.pinterest.com/" target="_blank">
+                  <img
+                    src="./src/images/icon-pinterest.svg"
+                    alt="Pinterest Icon"
+                  />
+                </a>
+              </div>
+            </div>
+
+            <button class="bg-articleDesaturatedBlue hover:bg-articleLightGrayishBlue flex h-9 w-9 items-center justify-center rounded-full hover:cursor-pointer lg:hidden hover:[&_img]:brightness-100 hover:[&_img]:invert-0" id="social-share">
+              <img
+                src="./src/images/icon-share.svg"
+                alt="Share Icon"
+                class="w-4 brightness-0 invert"
+              />
+            </button>
+          </section>
+        </section>
+      </section>
+    </article>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
