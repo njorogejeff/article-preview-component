@@ -1,8 +1,8 @@
-# Frontend Mentor - Article preview component solution
+# Frontend Mentor - Article Preview Component Solution
 
-This is a solution to the [Article preview component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/article-preview-component-dYBN_pYFT). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the [Article Preview Component Challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/article-preview-component-dYBN_pYFT).
 
-## Table of contents
+## Table of Contents
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
@@ -16,98 +16,100 @@ This is a solution to the [Article preview component challenge on Frontend Mento
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
-### The challenge
+### The Challenge:
 
 Users should be able to:
 
 - View the optimal layout for the component depending on their device's screen size
 - See the social media share links when they click the share icon
 
-### Screenshot
+### Screenshot:
 
-![](./screenshot.jpg)
+[![Article Preview Component - Desktop Preview](./public/screenshot/desktop-preview-final.png "Article Preview Component - Desktop Preview")](https://fm-article-preview-component.vercel.app)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+### Links:
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
+- Solution URL: [Article Preview Component](https://github.com/njorogejeff/fm-stats-preview-card-component)
+- Live Site URL: [Add live site URL here](https://fm-article-preview-component.vercel.app)
 
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
+## My Process
 
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
-
-### Links
-
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
-
-## My process
-
-### Built with
+### Built With:
 
 - Semantic HTML5 markup
+- [Tailwind CSS](https://tailwindcss.com/) - CSS Framework - For styles
+- [Vite](https://vite.dev/) - Frontend Build Tool
 - CSS custom properties
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+### What I Learned:
 
-### What I learned
+I learned how to handle different component states across viewports using a mix of JavaScript and CSS utility classes.
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+**Share Functionality (Mobile vs Desktop)**
 
-To see how you can add code snippets, see below:
+The share component behaves differently depending on the screen size:
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
+- **Mobile:** The share options overlay the author information.
+- **Desktop:** The share options appear as a tooltip above the share button, keeping the author info visible.
 
-```css
-.proud-of-this-css {
-  color: papayawhip;
+I used a single JavaScript function to toggle the visibility of both sections:
+
+```js
+function toggleSections() {
+  authorSection.classList.toggle("invisible");
+  socialSection.classList.toggle("invisible");
 }
 ```
 
-```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
+To ensure the author section remains visible on desktop (despite the `invisible` class being added), I used the `lg:visible` Tailwind class on the author container. This overrides the `invisible` utility on large screens.
+
+**Socials Positioning**
+
+Positioning the tooltip on desktop required absolute positioning relative to the card container. I used specific coordinate utilities to place it correctly:
+
+```html
+<section
+  class="absolute lg:top-auto lg:right-15.5 lg:bottom-23 lg:translate-x-1/2 ... ..."
+>
+  <!-- Social Links -->
+</section>
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+I also created the "speech bubble" triangle using the `::after` pseudo-element with Tailwind classes:
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+```html
+<div
+  class="lg:after:absolute lg:after:top-full lg:after:left-1/2 lg:after:-translate-x-1/2 lg:after:border-8 lg:after:border-x-transparent lg:after:border-b-transparent ... ..."
+></div>
+```
 
-### Continued development
+### Continued Development:
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+I want to continue focusing on:
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- **Accessibility:** Ensuring that interactive elements like the share button are fully accessible to screen readers (e.g., managing `aria-expanded` states).
+- **CSS Animations:** Adding smoother transitions for the share tooltip appearance instead of a simple toggle.
+- **Tailwind Configuration:** Exploring more advanced Tailwind configuration options to streamline the design system further.
 
-### Useful resources
+### Useful Resources:
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Tailwind CSS](https://tailwindcss.com/) - This resource provided me with the necessary information to get started with Tailwind CSS and additional styling.
+- [MDN Web Docs](https://developer.mozilla.org/en-US/) - Always a reliable reference for HTML, CSS, and JavaScript concepts.
+- [W3Schools](https://www.w3schools.com/) - Great for quick references and examples.
+- [Tweet by @DavidKPiano on Tailwind Child Selectors](https://x.com/DavidKPiano/status/1969054758318051432?s=20) - This tweet was incredibly helpful for understanding how to style child elements using Tailwind's arbitrary variants. It helped me implement the hover effects on the share buttons (e.g., `hover:[&_img]:brightness-0` and `hover:[&_img]:invert`).
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Frontend Mentor - [@njorogejeff](https://www.frontendmentor.io/profile/njorogejeff)
+- GitHub - [@njorogejeff](https://github.com/njorogejeff)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Thanks to [Frontend Mentor](https://www.frontendmentor.io/) for the challenge and design assets.
+- The [Tailwind CSS](https://tailwindcss.com/) and [Vite](https://vite.dev/) teams for excellent docs and tooling.
+- The Frontend Mentor community for shared insights and feedback.
